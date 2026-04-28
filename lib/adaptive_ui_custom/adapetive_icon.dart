@@ -27,6 +27,14 @@ class AdaptiveIcons {
     );
   }
 
+  static Widget back(VoidCallback onTap) {
+    return _build(
+      onTap,
+      cupertino: CupertinoIcons.back,
+      material: Icons.arrow_back,
+    );
+  }
+
   static Widget more(VoidCallback onTap) {
     return _build(
       onTap,
