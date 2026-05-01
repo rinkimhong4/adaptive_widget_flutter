@@ -14,8 +14,8 @@ void main() {
   // DummyJSON — no auth required.
   // For your real API, swap the baseUrl and pass an accessToken.
   // final apiURL = ApiService(baseUrl: 'https://dummyjson.com');
-  // final apiURL = ApiService(baseUrl: 'https://fakestoreapi.com');
-  final apiURL = ApiService(baseUrl: 'http://localhost:3000/v1/api');
+  final apiURL = ApiService(baseUrl: 'https://fakestoreapi.com');
+  // final apiURL = ApiService(baseUrl: 'http://localhost:3000/v1/api');
 
   runApp(
     MultiProvider(
@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorSchemeSeed: Colors.indigo, useMaterial3: true),
       // home: const ProductScreen(),
-      // home: const Test(),
-      home: const StudentScreen(),
+      home: const Test(),
+      // home: const StudentScreen(),
     );
   }
 }

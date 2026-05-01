@@ -1,10 +1,14 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:adaptive_widgeet/api/Model/Product.dart';
 import 'package:adaptive_widgeet/helper/helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard1 extends StatelessWidget {
-  const ProductCard1({super.key});
+  ProductCard1({super.key, required this.product});
+  Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +34,7 @@ class ProductCard1 extends StatelessWidget {
             child: CachedNetworkImage(
               width: 100,
               height: 120,
-              imageUrl:
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbO1wORvB5nohViC2E7o6ziITzZ2hc9wARgg&s",
+              imageUrl: product.thumbnail ?? "Error",
               fit: BoxFit.cover,
               placeholder: (context, url) => const SizedBox(
                 width: 92,
@@ -54,7 +57,7 @@ class ProductCard1 extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        "Product Title, Product Title Product Title",
+                        product.title ?? "",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -75,14 +78,14 @@ class ProductCard1 extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "In Stock : ",
+                            product.stock.toString(),
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Colors.green[600],
                             ),
                           ),
                           Text(
-                            "4",
+                            product.rating.toString(),
                             style: TextStyle(
                               color: Colors.green[600],
                               fontWeight: FontWeight.w500,
@@ -95,9 +98,7 @@ class ProductCard1 extends StatelessWidget {
                 ),
                 SizedBox(height: 4),
                 Text(
-                  Helper.formatText(
-                    "Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle",
-                  ),
+                  Helper.formatText(product.description.toString()),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -105,7 +106,7 @@ class ProductCard1 extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "\$70.99",
+                      "\$${product.price}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
