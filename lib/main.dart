@@ -1,3 +1,4 @@
+import 'package:adaptive_widgeet/%20graphic_charts/home.dart';
 import 'package:adaptive_widgeet/api/controller/controller.dart';
 import 'package:adaptive_widgeet/home_screen.dart';
 import 'package:adaptive_widgeet/image_picker/providers/image_provider.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const ImagePickerScreen(),
+      home: const Home(),
     );
   }
 }

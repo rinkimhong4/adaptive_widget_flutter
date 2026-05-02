@@ -98,7 +98,7 @@ class ProductCard1 extends StatelessWidget {
                 ),
                 SizedBox(height: 4),
                 Text(
-                  Helper.formatText(product.description.toString()),
+                  Helper.formatText4(product.description.toString()),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
