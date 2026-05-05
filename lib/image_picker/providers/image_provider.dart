@@ -48,6 +48,10 @@ class ImageProviderX extends ChangeNotifier {
     final url = await uploader.upload(singleImage!);
     uploadedUrls.add(url);
 
+    if (url != null) {
+      uploadedUrls.add(url);
+    }
+
     isLoading = false;
     notifyListeners();
   }

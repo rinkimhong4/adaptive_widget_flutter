@@ -14,8 +14,9 @@ void main() {
   // DummyJSON — no auth required.
   // For your real API, swap the baseUrl and pass an accessToken.
   // final apiURL = ApiService(baseUrl: 'https://dummyjson.com');
-  final apiURL = ApiService(baseUrl: 'https://fakestoreapi.com');
+  // final apiURL = ApiService(baseUrl: 'https://fakestoreapi.com');
   // final apiURL = ApiService(baseUrl: 'http://localhost:3000/v1/api');
+  final apiURL = ApiService(baseUrl: 'http://localhost:3000');
 
   runApp(
     MultiProvider(

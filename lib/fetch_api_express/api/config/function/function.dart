@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 
 extension ListSpaceBetweenExtension on List<Widget> {
   List<Widget> withSpaceBetween({double? width, double? height}) => [
-    for (int i = 0; i < length; i++) ...[
-      if (i > 0) SizedBox(width: width, height: height),
-      this[i],
-    ],
-  ];
+        for (int i = 0; i < length; i++) ...[
+          if (i > 0) SizedBox(width: width, height: height),
+          this[i],
+        ],
+      ];
 }
 
 void processAlert({required String message, required void Function() onTap}) {
@@ -20,11 +20,8 @@ void processAlert({required String message, required void Function() onTap}) {
         double screenHeight = constraints.maxHeight;
         bool isPortrait = screenHeight > screenWidth;
 
-        // Calculate margins, padding, and constraints based on orientation and screen size
         double margin = screenWidth * 0.05;
-        double padding =
-            screenWidth *
-            (isPortrait ? 0.05 : 0.02); // Smaller padding in landscape
+        double padding = screenWidth * (isPortrait ? 0.05 : 0.02);
         double maxWidth = isPortrait ? screenWidth * 0.9 : screenWidth * 0.6;
         double maxHeight = isPortrait ? screenHeight * 0.4 : screenHeight * 0.5;
 
@@ -47,25 +44,23 @@ void processAlert({required String message, required void Function() onTap}) {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset('assets/icon/progress.gif', scale: 7),
+                    const CircularProgressIndicator(),
                     Text(
                       'inProgress'.tr,
-                      // style: AppTextStyle.bold18(color: AppTheme.primaryswatch),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        // color: AppTheme.primarySwatch.shade900,
                       ),
                     ),
                     Text(
                       message,
-                      style: TextStyle(
-                        fontSize: 15,
-                        // color: AppTheme.primarySwatch.shade900,
-                      ),
+                      style: const TextStyle(fontSize: 15),
                     ),
                     const SizedBox(),
-                    ElevatedButton(onPressed: onTap, child: Text('cancel')),
+                    ElevatedButton(
+                      onPressed: onTap,
+                      child: const Text('Cancel'),
+                    ),
                   ].withSpaceBetween(height: 10),
                 ),
               ),
@@ -82,11 +77,11 @@ void notificationAlert(String message) {
     padding: const EdgeInsets.only(left: 28, top: 12, bottom: 10),
     messageText: Text(
       message,
-      style: TextStyle(fontSize: 16, color: Colors.white),
+      style: const TextStyle(fontSize: 16, color: Colors.white),
     ),
     isDismissible: false,
     duration: const Duration(seconds: 3),
-    // backgroundColor: AppColors.redColor,
+    backgroundColor: Colors.redAccent,
     icon: Container(
       alignment: Alignment.topRight,
       height: 18,
@@ -102,7 +97,7 @@ void notificationAlert(String message) {
   );
 }
 
-void sucessfullyAlert({
+void successfullyAlert({
   required String message,
   required void Function() onTap,
 }) {
@@ -114,11 +109,8 @@ void sucessfullyAlert({
         double screenHeight = constraints.maxHeight;
         bool isPortrait = screenHeight > screenWidth;
 
-        // Calculate margins, padding, and constraints based on orientation and screen size
         double margin = screenWidth * 0.05;
-        double padding =
-            screenWidth *
-            (isPortrait ? 0.05 : 0.02); // Smaller padding in landscape
+        double padding = screenWidth * (isPortrait ? 0.05 : 0.02);
         double maxWidth = isPortrait ? screenWidth * 0.9 : screenWidth * 0.6;
         double maxHeight = isPortrait ? screenHeight * 0.4 : screenHeight * 0.5;
 
@@ -141,24 +133,27 @@ void sucessfullyAlert({
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset('assets/icon/verified.gif', scale: 2),
+                    const Icon(
+                      Icons.check_circle,
+                      color: Colors.green,
+                      size: 64,
+                    ),
                     Text(
                       'confirm'.tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        // color: AppTheme.primarySwatch.shade900,
                       ),
                     ),
                     Text(
                       message,
-                      style: TextStyle(
-                        fontSize: 15,
-                        // color: AppTheme.primarySwatch.shade900,
-                      ),
+                      style: const TextStyle(fontSize: 15),
                     ),
                     const SizedBox(),
-                    ElevatedButton(onPressed: onTap, child: Text('ok')),
+                    ElevatedButton(
+                      onPressed: onTap,
+                      child: const Text('OK'),
+                    ),
                   ].withSpaceBetween(height: 10),
                 ),
               ),
@@ -174,7 +169,7 @@ class Functions {
   static void clipboard(String text) {
     Clipboard.setData(ClipboardData(text: text));
     Get.showSnackbar(
-      GetSnackBar(
+      const GetSnackBar(
         message: 'Copied to clipboard',
         duration: Duration(seconds: 2),
       ),

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class UploadService {
-  final String baseUrl = "https://your-api.com/upload";
+  final String baseUrl = "http://localhost:3000/upload";
 
   Future<String> upload(File file) async {
     final request = http.MultipartRequest('POST', Uri.parse(baseUrl));

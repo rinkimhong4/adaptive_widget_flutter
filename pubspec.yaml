@@ -43,6 +43,7 @@ dependencies:
   graphic: ^2.7.0
   intl: ^0.20.2
   quiver: ^3.2.2
+  dio: ^5.9.2
 
 dev_dependencies:
   flutter_test:
