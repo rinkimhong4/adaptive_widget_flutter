@@ -7,6 +7,7 @@ import 'package:adaptive_widgeet/image_picker/providers/image_provider.dart';
 import 'package:adaptive_widgeet/image_picker/services/image_picker_service.dart';
 import 'package:adaptive_widgeet/image_picker/services/upload_service.dart';
 import 'package:adaptive_widgeet/image_picker/ui/image_picker_screen.dart';
+import 'package:adaptive_widgeet/splash/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,11 +37,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const ProductScreen(),
+      debugShowCheckedModeBanner: false,
+      // theme: ThemeData(
+      //   useMaterial3: true,
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      // ),
+      home: const MenuScreen(),
     );
   }
 }
