@@ -223,6 +223,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             ),
                           )
                         : ListView.builder(
+                            physics: const BouncingScrollPhysics(),
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             itemCount: getFilteredItems().length,
                             itemBuilder: (context, index) {
@@ -279,27 +280,27 @@ class _MenuScreenState extends State<MenuScreen> {
                                               ),
                                           child: Scaffold(
                                             backgroundColor: Colors.white,
-                                            appBar: AppBar(
-                                              backgroundColor: Colors.white,
-                                              automaticallyImplyLeading: false,
-                                              title: const Text(
-                                                "Product Details",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                              centerTitle: true,
-                                              actions: [
-                                                GestureDetector(
-                                                  onTap: () =>
-                                                      Navigator.pop(context),
-                                                  child: const Icon(
-                                                    CupertinoIcons.xmark,
-                                                  ),
-                                                ),
-                                                const SizedBox(width: 16),
-                                              ],
-                                            ),
+                                            // appBar: AppBar(
+                                            //   backgroundColor: Colors.white,
+                                            //   automaticallyImplyLeading: false,
+                                            //   title: const Text(
+                                            //     "Product Details",
+                                            //     style: TextStyle(
+                                            //       fontWeight: FontWeight.w500,
+                                            //     ),
+                                            //   ),
+                                            //   centerTitle: true,
+                                            //   actions: [
+                                            //     GestureDetector(
+                                            //       onTap: () =>
+                                            //           Navigator.pop(context),
+                                            //       child: const Icon(
+                                            //         CupertinoIcons.xmark,
+                                            //       ),
+                                            //     ),
+                                            //     const SizedBox(width: 16),
+                                            //   ],
+                                            // ),
                                             body: SingleChildScrollView(
                                               child: Padding(
                                                 padding: const EdgeInsets.only(

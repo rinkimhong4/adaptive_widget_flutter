@@ -1,48 +1,73 @@
-import 'package:adaptive_widgeet/%20graphic_charts/home.dart';
-import 'package:adaptive_widgeet/fetch_api_express/api/config/api_service.dart';
-import 'package:adaptive_widgeet/fetch_api_express/providers/product_provider.dart';
-import 'package:adaptive_widgeet/fetch_api_express/screens/product_screen.dart';
-import 'package:adaptive_widgeet/home_screen.dart';
-import 'package:adaptive_widgeet/image_picker/providers/image_provider.dart';
-import 'package:adaptive_widgeet/image_picker/services/image_picker_service.dart';
-import 'package:adaptive_widgeet/image_picker/services/upload_service.dart';
-import 'package:adaptive_widgeet/image_picker/ui/image_picker_screen.dart';
-import 'package:adaptive_widgeet/splash/splash_screen.dart';
+// import 'package:adaptive_widgeet/%20graphic_charts/home.dart';
+// import 'package:adaptive_widgeet/fetch_api_express/api/config/api_service.dart';
+// import 'package:adaptive_widgeet/fetch_api_express/providers/product_provider.dart';
+// import 'package:adaptive_widgeet/fetch_api_express/screens/product_screen.dart';
+// import 'package:adaptive_widgeet/home_screen.dart';
+// import 'package:adaptive_widgeet/image_picker/providers/image_provider.dart';
+// import 'package:adaptive_widgeet/image_picker/services/image_picker_service.dart';
+// import 'package:adaptive_widgeet/image_picker/services/upload_service.dart';
+// import 'package:adaptive_widgeet/image_picker/ui/image_picker_screen.dart';
+// import 'package:adaptive_widgeet/label.dart';
+// import 'package:adaptive_widgeet/pos_table_scan/pos_table_scan.dart';
+// import 'package:adaptive_widgeet/splash/splash_screen.dart';
 
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:provider/provider.dart';
+
+// void main() {
+//   final apiURL = ApiService(baseUrl: 'http://localhost:3000');
+//   runApp(
+//     MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(
+//           create: (_) => ImageProviderX(
+//             picker: ImagePickerService(),
+//             uploader: UploadService(),
+//           ),
+//         ),
+//         ChangeNotifierProvider(create: (_) => ProductProvider(apiURL)),
+//       ],
+//       child: const MyApp(),
+//     ),
+//   );
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetMaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       // theme: ThemeData(
+//       //   useMaterial3: true,
+//       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+//       // ),
+//       // home: const MenuScreen(),
+//       // home: const PosTableScan(),
+//       home: const LabelDesignerScreen(),
+//     );
+//   }
+// }
+
+import 'package:adaptive_widgeet/label.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  final apiURL = ApiService(baseUrl: 'http://localhost:3000');
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => ImageProviderX(
-            picker: ImagePickerService(),
-            uploader: UploadService(),
-          ),
-        ),
-        ChangeNotifierProvider(create: (_) => ProductProvider(apiURL)),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   useMaterial3: true,
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      // ),
-      home: const MenuScreen(),
+    return MaterialApp(
+      title: 'Label Designer',
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+      home: const LabelDesignerScreen(),
     );
   }
 }
